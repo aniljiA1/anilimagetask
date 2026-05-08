@@ -89,6 +89,10 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   }
 });
 
+app.get("/health", (req, res) => {
+  res.json({ success: true, message: "Backend running" });
+});
+
 // ✅ HISTORY API
 app.get("/history", async (req, res) => {
   const data = await prisma.request.findMany({
